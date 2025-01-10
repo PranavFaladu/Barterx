@@ -1,56 +1,56 @@
 const http = require("http")
-const { url } = require("inspector")
 
-const server = Bun.serve({
-    port:8050,
-    fetch(req){
-       const url = new URL(req.url);
+const server = http.createServer((req, res) => {
+    console.log(`${req.method} at ${req.url}`);
+    res.setHeader("Content-Type", "text/plain"); // Set response type to plain text
 
-       
-       switch (url.pathname) {
+    switch (req.url.trim()) {
         case "/":
-            return new Response("Welcome to BarterX");
-            
+            res.write("Welcome to BarterX");
+            break;
         case "/products":
-            return new Response("Here are the products up for sale in BarterX");
-            
+            res.write("Here are the products up for sale in BarterX");
+            break;
         case "/login":
-            return new Response("Login to BarterX");
-            
+            res.write("Login to BarterX");
+            break;
         case "/signup":
-            return new Response("Sign up to BarterX");
-            
+            res.write("Sign up to BarterX");
+            break;
         case "/profile":
-            return new Response("Trader Profile");
-            
+            res.write("Trader Profile");
+            break;
         case "/cart":
-            return new Response("Your Shopping Cart is here");
-            
+            res.write("Your Shopping Cart is here");
+            break;
         case "/checkout":
-            return new Response("Let's start shipping");
-            
+            res.write("Let's start shipping");
+            break;
         case "/orders":
-            return new Response("Your Orders are here");
-            
+            res.write("Your Orders are here");
+            break;
         case "/categories":
-            return new Response("Browse Categories");
-            
+            res.write("Browse Categories");
+            break;
         case "/chat":
-            return new Response("Your chat with fellow traders");
-            
+            res.write("Your chat with fellow traders");
+            break;
         case "/contact":
-            return new Response("Contact us here");
-            
+            res.write("Contact us here");
+            break;
         case "/about":
-            return new Response("The modern approach to trading commodities");
-            
+            res.write("The modern approach to trading commodities");
+            break;
         default:
-            return new Response("Page not found");
+            res.write("Page not found");
             break;
     }
 
-    }
-})
+    res.end(); // End the response
+});
 
-console.log(`Listening on http://localhost:${server.port}`)
+const PORT = 8050;
 
+server.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
