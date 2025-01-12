@@ -20,29 +20,27 @@ const server = Bun.serve({
             return new Response(Bun.file("./content/login.html"));
             
         case "/signup":
-            return new Response("Sign up to BarterX");
+            return new Response(Bun.file("./content/signup.html"));
             
         case "/profile":
-            return new Response("Trader Profile");
+            return new Response(Bun.file("./content/profile.html"));
             
         case "/cart":
-            return new Response("Your Shopping Cart is here");
+            return new Response(Bun.file("./content/cart.html"));
             
         case "/checkout":
-            return new Response("Let's start shipping");
+            return new Response(Bun.file("./content/checkout.html"));
             
         case "/orders":
-            return new Response("Your Orders are here");
+            return new Response(Bun.file("./content/orders.html"));
             
         case "/categories":
-            return new Response("Browse Categories");
+            return new Response(Bun.file("./content/categories.html"));
             
         case "/chat":
-            return new Response("Your chat with fellow traders");
-            
+            return new Response(Bun.file("./content/chat.html"));
         case "/contact":
-            return new Response("Contact us here");
-            
+            return new Response(Bun.file("./content/contact.html"));
         case "/about":
            return new Response(Bun.file("./content/about.html"))
             
